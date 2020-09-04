@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:puppytraining/helpers/bottom_navigation_view/bottom_bar_view.dart';
-import 'package:puppytraining/helpers/fitness_app_theme.dart';
+import 'package:puppytraining/app_theme.dart';
 import 'package:puppytraining/model/tabIcon_data.dart';
-import 'package:puppytraining/screens/my_diary_screen.dart';
-import 'package:puppytraining/screens/training_screen.dart'; 
+import 'package:puppytraining/screens/puppy_photos_screen.dart';
+import 'package:puppytraining/screens/puppy_food_screen.dart';
+import 'package:puppytraining/screens/puppy_peepoo_screen.dart';
+import 'package:puppytraining/screens/puppy_sleep_screen.dart';
+import 'package:puppytraining/screens/puppy_walk_screen.dart';
+
+import 'puppy_health_screen.dart'; 
  
 
 class HomeScreen extends StatefulWidget {
@@ -17,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   List<TabIconData> tabIconsList = TabIconData.tabIconsList;
 
   Widget tabBody = Container(
-    color: FintnessAppTheme.background,
+    color: AppTheme.background,
   );
 
   @override
@@ -29,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
     animationController = AnimationController(
         duration: const Duration(milliseconds: 600), vsync: this);
-    tabBody = MyDiaryScreen(animationController: animationController);
+    tabBody = PuppyFoodScreen(animationController: animationController);
     super.initState();
   }
 
@@ -42,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
    @override
   Widget build(BuildContext context) {
     return Container(
-      color: FintnessAppTheme.background,
+      color: AppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: FutureBuilder<bool>(
@@ -80,24 +85,71 @@ Widget bottomBar() {
           tabIconsList: tabIconsList,
           addClick: () {},
           changeIndex: (int index) {
-            if (index == 0 || index == 2|| index == 4) {
+            if (index == 0 ) {
               animationController.reverse().then<dynamic>((data) {
                 if (!mounted) {
                   return;
                 }
                 setState(() {
                   tabBody =
-                      MyDiaryScreen(animationController: animationController);
+                      PuppyFoodScreen(animationController: animationController);
                 });
               });
-            } else if (index == 1 || index == 3|| index == 5) {
+            } else if (index == 1) {
               animationController.reverse().then<dynamic>((data) {
                 if (!mounted) {
                   return;
                 }
                 setState(() {
                   tabBody =
-                      TrainingScreen(animationController: animationController);
+                      PuppyWalkScreen(animationController: animationController);
+                });
+              });
+            }
+            else if (index == 2) {
+              animationController.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      PuppyPhotosScreen(animationController: animationController);
+                });
+              });
+            }
+            
+            else if (index == 3) {
+              animationController.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      PuppyHealthScreen(animationController: animationController);
+                });
+              });
+            }
+            
+            else if (index == 4) {
+              animationController.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      PuppyPeePooScreen(animationController: animationController);
+                });
+              });
+            }
+            
+            else if (index == 5) {
+              animationController.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      PuppySleepScreen(animationController: animationController);
                 });
               });
             }

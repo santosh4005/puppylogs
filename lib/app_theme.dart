@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
-class FintnessAppTheme {
-  FintnessAppTheme._();
+class AppTheme {
+  AppTheme._();
+
+  static const Color nearlygreen = Color(0xFF43A047);
+  static const Color green = Color(0xFF1B5E20);
+
   static const Color nearlyWhite = Color(0xFFFAFAFA);
   static const Color white = Color(0xFFFFFFFF);
   static const Color background = Color(0xFFF2F3F8);

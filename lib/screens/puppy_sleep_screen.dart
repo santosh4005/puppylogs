@@ -2,20 +2,20 @@ import '../helpers/body_measurement.dart';
 import '../helpers/glass_view.dart';
 import '../helpers/mediterranesn_diet_view.dart';
 import '../helpers/title_view.dart';
-import '../helpers/fitness_app_theme.dart';
-import '../screens/meals_list_view.dart';
-import '../screens/water_view.dart';
+import '../app_theme.dart';
+import '../helpers/meals_list_view.dart';
+import '../helpers/water_view.dart';
 import 'package:flutter/material.dart';
 
-class MyDiaryScreen extends StatefulWidget {
-  const MyDiaryScreen({Key key, this.animationController}) : super(key: key);
+class PuppySleepScreen extends StatefulWidget {
+  const PuppySleepScreen({Key key, this.animationController}) : super(key: key);
 
   final AnimationController animationController;
   @override
-  _MyDiaryScreenState createState() => _MyDiaryScreenState();
+  _PuppySleepScreenState createState() => _PuppySleepScreenState();
 }
 
-class _MyDiaryScreenState extends State<MyDiaryScreen>
+class _PuppySleepScreenState extends State<PuppySleepScreen>
     with TickerProviderStateMixin {
   Animation<double> topBarAnimation;
 
@@ -81,7 +81,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     );
     listViews.add(
       TitleView(
-        titleTxt: 'Meals today',
+        titleTxt: 'Naps today',
         subTxt: 'Customize',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
@@ -164,7 +164,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FintnessAppTheme.background,
+      color: AppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -220,13 +220,13 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                     0.0, 30 * (1.0 - topBarAnimation.value), 0.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: FintnessAppTheme.white.withOpacity(topBarOpacity),
+                    color: AppTheme.white.withOpacity(topBarOpacity),
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(32.0),
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                          color: FintnessAppTheme.grey
+                          color: AppTheme.grey
                               .withOpacity(0.4 * topBarOpacity),
                           offset: const Offset(1.1, 1.1),
                           blurRadius: 10.0),
@@ -250,14 +250,14 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'My Diary',
+                                  'Naps',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                    fontFamily: FintnessAppTheme.fontName,
+                                    fontFamily: AppTheme.fontName,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 22 + 6 - 6 * topBarOpacity,
                                     letterSpacing: 1.2,
-                                    color: FintnessAppTheme.darkerText,
+                                    color: AppTheme.darkerText,
                                   ),
                                 ),
                               ),
@@ -273,7 +273,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                 child: Center(
                                   child: Icon(
                                     Icons.keyboard_arrow_left,
-                                    color: FintnessAppTheme.grey,
+                                    color: AppTheme.grey,
                                   ),
                                 ),
                               ),
@@ -289,7 +289,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                     padding: const EdgeInsets.only(right: 8),
                                     child: Icon(
                                       Icons.calendar_today,
-                                      color: FintnessAppTheme.grey,
+                                      color: AppTheme.grey,
                                       size: 18,
                                     ),
                                   ),
@@ -297,11 +297,11 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                     '15 May',
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
-                                      fontFamily: FintnessAppTheme.fontName,
+                                      fontFamily: AppTheme.fontName,
                                       fontWeight: FontWeight.normal,
                                       fontSize: 18,
                                       letterSpacing: -0.2,
-                                      color: FintnessAppTheme.darkerText,
+                                      color: AppTheme.darkerText,
                                     ),
                                   ),
                                 ],
@@ -318,7 +318,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                 child: Center(
                                   child: Icon(
                                     Icons.keyboard_arrow_right,
-                                    color: FintnessAppTheme.grey,
+                                    color: AppTheme.grey,
                                   ),
                                 ),
                               ),
