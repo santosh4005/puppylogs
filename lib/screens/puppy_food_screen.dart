@@ -1,6 +1,4 @@
-import '../helpers/body_measurement.dart';
-import '../helpers/glass_view.dart';
-import '../helpers/mediterranesn_diet_view.dart';
+import '../helpers/donut_progressbar_card_view.dart';
 import '../helpers/title_view.dart';
 import '../app_theme.dart';
 import '../helpers/meals_list_view.dart';
@@ -20,6 +18,8 @@ class _PuppyFoodScreenState extends State<PuppyFoodScreen>
   Animation<double> topBarAnimation;
 
   List<Widget> listViews = <Widget>[];
+
+  //using this scrollcontroller to change appbar bar opacity when moving up and down
   final ScrollController scrollController = ScrollController();
   double topBarOpacity = 0.0;
 
@@ -61,7 +61,7 @@ class _PuppyFoodScreenState extends State<PuppyFoodScreen>
 
     listViews.add(
       TitleView(
-        titleTxt: 'Mediterranean diet',
+        titleTxt: 'Food Summary',
         subTxt: 'Details',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
@@ -71,7 +71,12 @@ class _PuppyFoodScreenState extends State<PuppyFoodScreen>
       ),
     );
     listViews.add(
-      MediterranesnDietView(
+      DonutProgressBarCardView(    
+        verticalName1: "Eaten",
+        verticalValue1: 2,
+        verticalValue1Units: "Meals",
+        verticalName2: "Uneaten",
+        verticalMaxValue1: 4, 
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
@@ -82,15 +87,14 @@ class _PuppyFoodScreenState extends State<PuppyFoodScreen>
     listViews.add(
       TitleView(
         titleTxt: 'Meals today',
-        subTxt: 'Customize',
+        subTxt: 'Details',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
                 Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController,
       ),
-    );
-
+    ); 
     listViews.add(
       MealsListView(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
@@ -100,41 +104,38 @@ class _PuppyFoodScreenState extends State<PuppyFoodScreen>
                     curve: Curves.fastOutSlowIn))),
         mainScreenAnimationController: widget.animationController,
       ),
-    );
-
-    listViews.add(
-      TitleView(
-        titleTxt: 'Body measurement',
-        subTxt: 'Today',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve:
-                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController,
-      ),
-    );
-
-    listViews.add(
-      BodyMeasurementView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve:
-                Interval((1 / count) * 5, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController,
-      ),
-    );
+    ); 
+    // listViews.add(
+    //   TitleView(
+    //     titleTxt: 'Body measurement',
+    //     subTxt: 'Today',
+    //     animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+    //         parent: widget.animationController,
+    //         curve:
+    //             Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+    //     animationController: widget.animationController,
+    //   ),
+    // ); 
+    // listViews.add(
+    //   BodyMeasurementView(
+    //     animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+    //         parent: widget.animationController,
+    //         curve:
+    //             Interval((1 / count) * 5, 1.0, curve: Curves.fastOutSlowIn))),
+    //     animationController: widget.animationController,
+    //   ),
+    // );
     listViews.add(
       TitleView(
         titleTxt: 'Water',
-        subTxt: 'Aqua SmartBottle',
+        subTxt: 'Details',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
                 Interval((1 / count) * 6, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController,
       ),
-    );
-
+    ); 
     listViews.add(
       WaterView(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
@@ -145,15 +146,15 @@ class _PuppyFoodScreenState extends State<PuppyFoodScreen>
         mainScreenAnimationController: widget.animationController,
       ),
     );
-    listViews.add(
-      GlassView(
-          animation: Tween<double>(begin: 0.0, end: 1.0).animate(
-              CurvedAnimation(
-                  parent: widget.animationController,
-                  curve: Interval((1 / count) * 8, 1.0,
-                      curve: Curves.fastOutSlowIn))),
-          animationController: widget.animationController),
-    );
+    // listViews.add(
+    //   GlassView(
+    //       animation: Tween<double>(begin: 0.0, end: 1.0).animate(
+    //           CurvedAnimation(
+    //               parent: widget.animationController,
+    //               curve: Interval((1 / count) * 8, 1.0,
+    //                   curve: Curves.fastOutSlowIn))),
+    //       animationController: widget.animationController),
+    // );
   }
 
   Future<bool> getData() async {

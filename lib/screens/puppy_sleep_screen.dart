@@ -1,6 +1,6 @@
 import '../helpers/body_measurement.dart';
 import '../helpers/glass_view.dart';
-import '../helpers/mediterranesn_diet_view.dart';
+import '../helpers/donut_progressbar_card_view.dart';
 import '../helpers/title_view.dart';
 import '../app_theme.dart';
 import '../helpers/meals_list_view.dart';
@@ -71,7 +71,7 @@ class _PuppySleepScreenState extends State<PuppySleepScreen>
       ),
     );
     listViews.add(
-      MediterranesnDietView(
+      DonutProgressBarCardView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:

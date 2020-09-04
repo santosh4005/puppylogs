@@ -84,7 +84,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
                       bottomRight: Radius.circular(80.0),
                       topRight: Radius.circular(80.0)),
                   gradient: LinearGradient(
-                    colors: [AppTheme.green.withOpacity(0.2), AppTheme.green.withOpacity(0.5)],
+                    colors: [AppTheme.nearlyDarkBlue.withOpacity(0.2), AppTheme.nearlyDarkBlue.withOpacity(0.5)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -97,7 +97,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
                 decoration: BoxDecoration(
                   color: AppTheme.nearlyDarkBlue,
                   gradient: LinearGradient(
-                    colors: [AppTheme.nearlygreen, AppTheme.green],
+                    colors: [AppTheme.nearlyBlue, AppTheme.nearlyDarkBlue],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
